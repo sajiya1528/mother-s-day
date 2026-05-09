@@ -72,6 +72,7 @@ const popupMessage = document.getElementById('popup-message');
 const popupDescription = document.getElementById('popup-description');
 const popupAudio = document.getElementById('popup-audio');
 const closeBtn = document.getElementById('close-popup');
+const bgMusic = document.getElementById('bg-music');
 
 function openPopup(data) {
     popupImage.src = data.image;
@@ -92,6 +93,9 @@ function openPopup(data) {
             console.log("Audio autoplay prevented or audio file missing.");
         });
     }
+    
+    // Lower background music volume while popup audio plays
+    bgMusic.volume = 0.1;
 
     createMiniHearts();
 }
@@ -100,6 +104,9 @@ function closePopup() {
     popupOverlay.classList.remove('active');
     popupAudio.pause();
     popupAudio.currentTime = 0;
+    
+    // Restore background music volume
+    bgMusic.volume = 1.0;
     
     // Clear mini hearts after transition
     setTimeout(() => {
@@ -175,4 +182,20 @@ function createMiniHearts() {
 // Start background animation when page loads
 window.addEventListener('DOMContentLoaded', () => {
     createBackgroundHearts();
+    
+    // Try to auto-play background music
+    bgMusic.volume = 1.0;
+    let playPromise = bgMusic.play();
+    
+    if (playPromise !== undefined) {
+        playPromise.catch(error => {
+            console.log("Browser prevented background music autoplay. Waiting for user to click anywhere.");
+            
+            // If autoplay is blocked, wait for the very first click anywhere on the website to start it
+            document.body.addEventListener('click', function playOnFirstClick() {
+                bgMusic.play();
+                document.body.removeEventListener('click', playOnFirstClick);
+            }, { once: true });
+        });
+    }
 });
