@@ -64,6 +64,7 @@ h1, h2, .playfair {
     list-style: none;
     display: flex;
     justify-content: space-around;
+    align-items: center;
 }
 
 .nav-links a {
@@ -77,6 +78,18 @@ h1, h2, .playfair {
 .nav-links a:hover {
     color: #ff1493;
     text-shadow: 0 0 5px rgba(255, 105, 180, 0.5);
+}
+
+.mute-btn {
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.mute-btn:hover {
+    transform: scale(1.1);
 }
 
 /* Sections */
@@ -110,6 +123,31 @@ section {
     font-size: 1.5rem;
     color: #555;
     font-weight: 300;
+    margin-bottom: 30px;
+}
+
+.play-btn {
+    background: var(--dark-pink);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(216, 112, 147, 0.3);
+}
+
+.play-btn:hover {
+    background: #ff1493;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(216, 112, 147, 0.4);
+}
+
+.play-btn:active {
+    transform: translateY(-1px);
 }
 
 /* Balloon Section */

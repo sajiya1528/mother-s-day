@@ -9,7 +9,7 @@
 </head>
 <body>
     <!-- Background Music -->
-    <audio id="bg-music" loop src="audio/audio 5.mp3"></audio>
+    <audio id="bg-music" src="audio/audio 5.mp3"></audio>
 
     <!-- Floating background animation -->
     <div class="floating-hearts-bg" id="hearts-container"></div>
@@ -20,14 +20,16 @@
             <li><a href="#home">Home</a></li>
             <li><a href="#balloons">Balloons</a></li>
             <li><a href="#message">Message</a></li>
+            <li><button id="global-mute-btn" class="mute-btn" aria-label="Toggle Audio">🔊</button></li>
         </ul>
     </nav>
 
     <!-- Home Section -->
     <section id="home" class="hero">
         <div class="hero-content glass">
-            <h1 class="glow-text">Happy Mother's Day ❤️</h1>
+            <h1 id="main-heading" class="glow-text" style="cursor: pointer;" title="Tap to play music!">Happy Mother's Day ❤️</h1>
             <p class="subtitle">To the most special woman in my life</p>
+            <button id="hero-music-btn" class="play-btn">🎵 Play Music</button>
         </div>
     </section>
 

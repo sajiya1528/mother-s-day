@@ -198,4 +198,58 @@ window.addEventListener('DOMContentLoaded', () => {
             }, { once: true });
         });
     }
+
+    // Global Mute Logic
+    const globalMuteBtn = document.getElementById('global-mute-btn');
+    let isMuted = false;
+
+    if (globalMuteBtn) {
+        globalMuteBtn.addEventListener('click', () => {
+            isMuted = !isMuted;
+            
+            // Mute/Unmute all audio elements
+            const allAudios = document.querySelectorAll('audio');
+            allAudios.forEach(audio => {
+                audio.muted = isMuted;
+            });
+            
+            // Update button icon
+            globalMuteBtn.textContent = isMuted ? '🔇' : '🔊';
+        });
+    }
+
+    // Click on Main Heading to play music
+    const mainHeading = document.getElementById('main-heading');
+    if (mainHeading) {
+        mainHeading.addEventListener('click', () => {
+            // Restart audio 5 and play it once
+            bgMusic.currentTime = 0;
+            bgMusic.play().catch(e => console.log("Audio play blocked", e));
+            if (heroMusicBtn) heroMusicBtn.textContent = '⏸ Pause Music';
+        });
+    }
+
+    // Hero Music Button Logic
+    const heroMusicBtn = document.getElementById('hero-music-btn');
+    if (heroMusicBtn) {
+        heroMusicBtn.addEventListener('click', () => {
+            if (bgMusic.paused) {
+                bgMusic.play().catch(e => console.log("Audio play blocked", e));
+                heroMusicBtn.textContent = '⏸ Pause Music';
+            } else {
+                bgMusic.pause();
+                heroMusicBtn.textContent = '🎵 Play Music';
+            }
+        });
+    }
+
+    // Update button text if audio ends
+    bgMusic.addEventListener('ended', () => {
+        if (heroMusicBtn) heroMusicBtn.textContent = '🎵 Play Music';
+    });
+
+    // Update button text if music starts from other triggers (like initial load)
+    bgMusic.addEventListener('play', () => {
+        if (heroMusicBtn) heroMusicBtn.textContent = '⏸ Pause Music';
+    });
 });
