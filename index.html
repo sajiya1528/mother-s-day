@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Mother's Day ❤️</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Floating background animation -->
+    <div class="floating-hearts-bg" id="hearts-container"></div>
+    
+    <!-- Modern Glass Navbar -->
+    <nav class="navbar glass">
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#balloons">Balloons</a></li>
+            <li><a href="#message">Message</a></li>
+        </ul>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="hero">
+        <div class="hero-content glass">
+            <h1 class="glow-text">Happy Mother's Day ❤️</h1>
+            <p class="subtitle">To the most special woman in my life</p>
+        </div>
+    </section>
+
+    <!-- Interactive Balloons Section -->
+    <section id="balloons" class="balloon-section">
+        <h2 class="section-title glow-text">Tap a Balloon 🎈</h2>
+        <div class="balloons-container">
+            <!-- Balloons generated via JS -->
+        </div>
+    </section>
+
+    <!-- Love Letter Section -->
+    <section id="message" class="love-letter-section">
+        <div class="letter-card glass">
+            <h2 class="glow-text">A Little Note For You 💌</h2>
+            <div class="letter-content">
+                <p>Mom,</p>
+                <p>Thank you for everything you do. Your love, patience, and warmth make every day brighter. I may not say it enough, but I am endlessly grateful for you. You are my biggest inspiration and my safe place.</p>
+                <p>I love you more than words can say.</p>
+                <p class="signature">Forever your child ❤️</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Made with Love ❤️</p>
+    </footer>
+
+    <!-- Popup Overlay for Balloons -->
+    <div id="popup" class="popup-overlay hidden">
+        <div class="popup-content glass">
+            <button id="close-popup" class="close-btn">&times;</button>
+            <div class="popup-image-container">
+                <img id="popup-image" src="" alt="Mom">
+            </div>
+            <p id="popup-message" class="popup-message"></p>
+            <p id="popup-description" class="popup-description"></p>
+            <audio id="popup-audio" src=""></audio>
+            <!-- Container for explosion of cute emojis inside popup -->
+            <div class="mini-hearts" id="popup-hearts"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
